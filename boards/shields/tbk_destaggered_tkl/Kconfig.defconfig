@@ -5,7 +5,7 @@
 if SHIELD_TBK_DESTAGGERED_TKL_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "TBK destaggered-tkl"
+    default "TBK destaggered"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
