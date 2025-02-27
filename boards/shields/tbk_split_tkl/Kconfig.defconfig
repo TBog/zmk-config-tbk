@@ -1,0 +1,20 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+
+if SHIELD_TBK_SPLIT_TKL_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "TBK split-tkl"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_TBK_SPLIT_TKL_LEFT || SHIELD_TBK_SPLIT_TKL_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

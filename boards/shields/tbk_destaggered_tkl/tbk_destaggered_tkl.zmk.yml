@@ -1,0 +1,13 @@
+file_format: "1"
+id: tbk_destaggered_tkl
+name: TBog destaggered TKL
+type: shield
+url: https://github.com/TBog/zmk-config-split
+requires:
+  - nice_nano_v2
+features:
+  - keys
+  - studio
+siblings:
+  - tbk_destaggered_tkl_left
+  - tbk_destaggered_tkl_right
