@@ -19,6 +19,54 @@
 };
 
 / {
+    behaviors {
+        sh2cl: sh2cl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <220>;
+            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+        };
+
+        hold2boot: hold2boot {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&bootloader>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
+        };
+
+        http: http {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            flavor = "tap-preferred";
+        };
+
+        bt_td: bt_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings =
+                <&bt BT_SEL 0>,
+                <&bt BT_SEL 1>,
+                <&bt BT_SEL 2>,
+                <&bt BT_SEL 3>,
+                <&bt BT_SEL 4>;
+
+            tapping-term-ms = <220>;
+        };
+
+        // bluetooth 1 param macro
+
+        bt_select: bt_select {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&out OUT_BLE &macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -38,7 +86,7 @@
 &kp GRAVE  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5    &kp N6     &kp N7  &kp N8     &kp N9    &kp N0     &kp MINUS  &kp EQUAL  &kp BACKSPACE               &kp INS    &kp HOME
 &kp TAB    &kp Q     &kp W     &kp E   &kp R      &kp T     &kp Y      &kp U   &kp I      &kp O     &kp P      &kp LBKT   &kp RBKT   &kp BACKSLASH               &kp DEL    &kp END 
 &kp CAPS   &kp A     &kp S     &kp D   &kp F      &kp G     &kp H      &kp J   &kp K      &kp L     &kp SEMI   &kp APOS   &kp ENTER
-&sh2cl     &kp Z     &kp X     &kp C   &kp V      &kp B     &kp N      &kp M   &kp COMMA  &kp DOT   &kp SLASH  &kp RSHIFT                                        &kp UP
+&kp LSHFT  &kp Z     &kp X     &kp C   &kp V      &kp B     &kp N      &kp M   &kp COMMA  &kp DOT   &kp SLASH  &kp RSHIFT                                        &kp UP
 &kp LCTRL  &kp LGUI  &kp LALT  &mo 1   &to 1      &kp SPACE &kp SPACE  &to 0   &mo 1      &kp RALT  &mo 1      &kp K_APP   &kp RCTRL                  &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
