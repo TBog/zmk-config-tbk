@@ -78,4 +78,5 @@
         extra8 {
             status = "reserved";
         };
+    };
 };
