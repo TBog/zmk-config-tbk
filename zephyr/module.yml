@@ -4,8 +4,8 @@
 name: zmk-keyboard-tbk
 build:
   # List your dependencies
-  # depends:
-  #   - zmk-example-dependency
+  depends:
+    - zmk-userspace
   # Folder containing a "CMakeLists.txt" (. = root)
   cmake: .
   # Kconfig filepath
