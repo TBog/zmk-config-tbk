@@ -6,7 +6,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "tbk_destaggered_tkl-layouts.dtsi"
-#include "behaviors.dtsi"
+#include "lock_indicator.dtsi"
 /* #include "elpekenin/behaviors.dtsi" */
 
 / {
