@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 [Your Name/Organization]
+ * Copyright (c) 2024 TBog.rocks
  *
  * SPDX-License-Identifier: MIT
  */
@@ -55,13 +55,13 @@
      return 0;
  }
  
- #define TBOG_LOCK_INDICATOR_DEFINE(inst)                                                                    \
-     static struct tbog_lock_indicator_data tbog_lock_indicator_data_##inst = {                                          \
+ #define TBOG_LOCK_INDICATOR_DEFINE(inst)                                                           \
+     static struct tbog_lock_indicator_data tbog_lock_indicator_data_##inst = {                     \
          .led_gpio = GPIO_DT_SPEC_INST_GET_OR(inst, gpios, {0}),                                    \
-         .indicator_mask = DT_INST_PROP_OR(inst, indicator_mask, HID_LED_CAPS_LOCK),               \
+         .indicator_mask = DT_INST_PROP_OR(inst, indicator_mask, HID_KBD_LED_CAPS_LOCK),            \
      };                                                                                             \
-     DEVICE_DT_INST_DEFINE(inst, tbog_lock_indicator_init, NULL, &tbog_lock_indicator_data_##inst,                    \
-                            NULL, POST_KERNEL,                                 \
+     DEVICE_DT_INST_DEFINE(inst, tbog_lock_indicator_init, NULL, &tbog_lock_indicator_data_##inst,  \
+                            NULL, POST_KERNEL,                                                      \
                             CONFIG_APPLICATION_INIT_PRIORITY, NULL);
  
  DT_INST_FOREACH_CHILD(0, tbog_lock_indicator, TBOG_LOCK_INDICATOR_DEFINE)

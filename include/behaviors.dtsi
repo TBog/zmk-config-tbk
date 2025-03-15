@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <zephyr/include/zephyr/usb/class/hid.h>
+
+#define LED_CAPS_LOCK   HID_KBD_LED_CAPS_LOCK
+#define LED_NUM_LOCK    HID_KBD_LED_NUM_LOCK
+#define LED_SCROLL_LOCK HID_KBD_LED_SCROLL_LOCK
+#define LED_COMPOSE     HID_KBD_LED_COMPOSE
+#define LED_KANA        HID_KBD_LED_KANA
