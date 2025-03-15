@@ -4,7 +4,20 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <zmk/hid.h>
+// can't include zephyr or zmk hid.h
+//#include <zmk/hid.h>
+
+/**
+ * @brief HID keyboard LEDs.
+ * Duplicated from https://github.com/zephyrproject-rtos/zephyr/blob/main/include/zephyr/usb/class/hid.h
+ */
+enum hid_kbd_led {
+	HID_KBD_LED_NUM_LOCK	= 0x01,
+	HID_KBD_LED_CAPS_LOCK	= 0x02,
+	HID_KBD_LED_SCROLL_LOCK	= 0x04,
+	HID_KBD_LED_COMPOSE	= 0x08,
+	HID_KBD_LED_KANA	= 0x10,
+};
 
 #define LED_CAPS_LOCK   HID_KBD_LED_CAPS_LOCK
 #define LED_NUM_LOCK    HID_KBD_LED_NUM_LOCK
