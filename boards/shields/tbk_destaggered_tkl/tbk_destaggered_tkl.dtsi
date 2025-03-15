@@ -6,7 +6,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "tbk_destaggered_tkl-layouts.dtsi"
-#include "elpekenin/behaviors.dtsi"
+/* #include "elpekenin/behaviors.dtsi" */
 
 / {
     chosen {
@@ -19,6 +19,7 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 
+/*
     gpios {
         compatible = "gpio-leds";
         blue: blue {
@@ -38,6 +39,18 @@
             event = "on-deactivation";
             bindings = <&gpio 0 GPIO_OFF>;
         };
+    };
+*/
+    tbog_lock_indicator_caps: tbog_lock_indicator {
+        compatible = "tbog-lock-indicator";
+        gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
+        indicator_mask = <HID_LED_CAPS_LOCK>;
+    };
+
+    tbog_lock_indicator_num: tbog_lock_indicator {
+        compatible = "tbog-lock-indicator";
+        gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+        indicator_mask = <HID_LED_NUM_LOCK>;
     };
 
     default_transform: matrix_transform0 {
