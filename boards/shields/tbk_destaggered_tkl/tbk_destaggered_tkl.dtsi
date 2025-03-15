@@ -6,7 +6,6 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "tbk_destaggered_tkl-layouts.dtsi"
-#include "elpekenin/behaviors.dtsi"
 
 / {
     chosen {
