@@ -42,13 +42,13 @@
         };
     };
 */
-    tbog_lock_indicator_caps: tbog_lock_indicator {
+    tbog_lock_indicator_caps: tbog_lock_indicator_caps {
         compatible = "tbog-lock-indicator";
         gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
         indicator_mask = <LED_CAPS_LOCK>;
     };
 
-    tbog_lock_indicator_num: tbog_lock_indicator {
+    tbog_lock_indicator_num: tbog_lock_indicator_num {
         compatible = "tbog-lock-indicator";
         gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
         indicator_mask = <LED_NUM_LOCK>;
