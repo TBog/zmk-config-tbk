@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <zephyr/include/zephyr/usb/class/hid.h>
+#include <zmk/hid.h>
 
 #define LED_CAPS_LOCK   HID_KBD_LED_CAPS_LOCK
 #define LED_NUM_LOCK    HID_KBD_LED_NUM_LOCK

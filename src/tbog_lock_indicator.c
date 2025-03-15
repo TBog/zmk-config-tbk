@@ -9,7 +9,7 @@
  #include <zmk/event_manager.h>
  #include <zmk/events/hid_indicators_changed.h>
  #include <devicetree.h>
- #include <zephyr/usb/hid.h>
+ #include <zmk/hid.h>
  
  #define DT_DRV_COMPAT tbog_lock_indicator
  
