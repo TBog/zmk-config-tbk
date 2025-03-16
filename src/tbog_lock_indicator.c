@@ -13,14 +13,14 @@
  #include <zmk/hid.h>
  
  #define DT_DRV_COMPAT tbog_lock_indicator
- #define DEVICE_COUNT DT_NUM_INST(DT_DRV_COMPAT)
+ #define DEVICE_COUNT (DT_NUM_INST(tbog_lock_indicator))
  
  struct tbog_lock_indicator_data {
      const struct gpio_dt_spec led_gpio;
      uint8_t indicator_mask;
  };
  
-//  static void tbog_lock_indicator_handler(const struct zmk_event_header *eh) {
+//  static void tbog_lock_indicator_handler(const struct zmk_event_t *eh) {
 //      if (is_zmk_hid_indicators_changed(eh)) {
 //          const struct zmk_hid_indicators_changed *ev = as_zmk_hid_indicators_changed(eh);
  
@@ -38,8 +38,8 @@
 //      }
 //  }
 
- static void tbog_lock_indicator_handler(const struct zmk_event_header *eh) {
-    const struct zmk_hid_indicators_changed *ev = cast_zmk_hid_indicators_changed(eh);
+ static void tbog_lock_indicator_handler(const struct zmk_event_t *eh) {
+    const struct zmk_hid_indicators_changed *ev = as_zmk_hid_indicators_changed(eh);
     const struct device *dev;
     struct tbog_lock_indicator_data *data;
 
