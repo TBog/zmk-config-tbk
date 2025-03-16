@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+ #define DT_DRV_COMPAT tbog_lock_indicator
+
  #include <zephyr/device.h>
  #include <zephyr/kernel.h>
  #include <zephyr/drivers/gpio.h>
@@ -12,7 +14,6 @@
  #include <zmk/events/hid_indicators_changed.h>
  #include <zmk/hid.h>
  
- #define DT_DRV_COMPAT tbog_lock_indicator
  #define DEVICE_COUNT (DT_NUM_INST(tbog_lock_indicator))
  
  struct tbog_lock_indicator_data {
@@ -38,7 +39,7 @@
 //      }
 //  }
 
- static void tbog_lock_indicator_handler(const struct zmk_event_t *eh) {
+ static int tbog_lock_indicator_handler(const zmk_event_t *eh) {
     const struct zmk_hid_indicators_changed *ev = as_zmk_hid_indicators_changed(eh);
     const struct device *dev;
     struct tbog_lock_indicator_data *data;
@@ -53,6 +54,8 @@
         const bool new_led_state = (ev->indicators & data->indicator_mask) != 0;
         gpio_pin_set_dt(&data->led_gpio, new_led_state);
     }
+
+    return ZMK_EV_EVENT_BUBBLE;
  }
  
  static int tbog_lock_indicator_init(const struct device *dev) {
