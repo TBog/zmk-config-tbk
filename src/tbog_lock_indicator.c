@@ -19,6 +19,24 @@ struct tbog_lock_indicator_data {
     uint8_t indicator_mask;
 };
 
+static int tbog_lock_indicator_init(const struct device *dev) {
+    struct tbog_lock_indicator_data *data = dev->data;
+    int ret;
+
+    if (!device_is_ready(data->led_gpio.port)) {
+        printk("Lock Indicator GPIO device not ready\n");
+        return -ENODEV;
+    }
+
+    ret = gpio_pin_configure_dt(&data->led_gpio, GPIO_OUTPUT_INACTIVE);
+    if (ret < 0) {
+        printk("Failed to configure Lock Indicator GPIO: %d\n", ret);
+        return ret;
+    }
+
+    return 0;
+}
+
 #define LOCK_INDICATOR_DEFINE(inst)                                                           \
     static struct tbog_lock_indicator_data tbog_lock_indicator_data_##inst = {                     \
         .led_gpio = GPIO_DT_SPEC_INST_GET_OR(inst, gpios, {0}),                                    \
@@ -69,24 +87,6 @@ static int tbog_lock_indicator_handler(const zmk_event_t *eh) {
     }
 
     return ZMK_EV_EVENT_BUBBLE;
-}
-
-static int tbog_lock_indicator_init(const struct device *dev) {
-    struct tbog_lock_indicator_data *data = dev->data;
-    int ret;
-
-    if (!device_is_ready(data->led_gpio.port)) {
-        printk("Lock Indicator GPIO device not ready\n");
-        return -ENODEV;
-    }
-
-    ret = gpio_pin_configure_dt(&data->led_gpio, GPIO_OUTPUT_INACTIVE);
-    if (ret < 0) {
-        printk("Failed to configure Lock Indicator GPIO: %d\n", ret);
-        return ret;
-    }
-
-    return 0;
 }
 
 ZMK_LISTENER(tbog_lock_indicator, tbog_lock_indicator_handler);
