@@ -28,7 +28,7 @@ struct tbog_lock_indicator_data {
                         NULL, POST_KERNEL,                                                      \
                         CONFIG_APPLICATION_INIT_PRIORITY, NULL);
 
-DT_INST_FOREACH_CHILD(0, tbog_lock_indicator, LOCK_INDICATOR_DEFINE)
+DT_INST_FOREACH_CHILD(0, LOCK_INDICATOR_DEFINE)
 
 #define LOCK_INDICATOR_DATA_REF_AND_COMMA(n) \
     &tbog_lock_indicator_data_##n,
