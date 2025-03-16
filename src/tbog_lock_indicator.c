@@ -13,12 +13,10 @@
  
  #define DT_DRV_COMPAT tbog_lock_indicator
  #define DEVICE_COUNT DT_NUM_INST(DT_DRV_COMPAT)
- #define DEVICE_NAME(inst) DEVICE_DT_NAME_GET(DT_DRV_INST(inst))
  
  struct tbog_lock_indicator_data {
      const struct gpio_dt_spec led_gpio;
      uint8_t indicator_mask;
-     bool led_state;
  };
  
 //  static void tbog_lock_indicator_handler(const struct zmk_event_header *eh) {
@@ -46,16 +44,13 @@
 
     // Iterate over all instances
     for (int i = 0; i < DEVICE_COUNT; i++) {
-        dev = device_get_binding(DEVICE_NAME(i));
+        dev = device_get_binding(DT_INST_LABEL(i));
         if (!dev) {
             continue;
         }
         data = dev->data;
         const bool new_led_state = (ev->indicators & data->indicator_mask) != 0;
-        if (new_led_state != data->led_state) {
-            data->led_state = new_led_state;
-            gpio_pin_set_dt(&data->led_gpio, data->led_state);
-        }
+        gpio_pin_set_dt(&data->led_gpio, new_led_state);
     }
  }
  
@@ -73,8 +68,6 @@
          printk("Failed to configure Lock Indicator GPIO: %d\n", ret);
          return ret;
      }
-
-     data->led_state = gpio_pin_get_dt(&data->led_gpio); // Initialize led_state
  
      return 0;
  }
