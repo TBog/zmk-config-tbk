@@ -9,7 +9,6 @@
  #include <zephyr/drivers/gpio.h>
 
  #include <zmk/event_manager.h>
- #include <zmk/events/event_header.h>
  #include <zmk/events/hid_indicators_changed.h>
  #include <zmk/hid.h>
  
