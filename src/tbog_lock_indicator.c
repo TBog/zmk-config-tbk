@@ -89,5 +89,5 @@ static int tbog_lock_indicator_init(const struct device *dev) {
     return 0;
 }
 
-static ZMK_LISTENER(tbog_lock_indicator, tbog_lock_indicator_handler);
-static ZMK_SUBSCRIPTION(tbog_lock_indicator, zmk_hid_indicators_changed);
+ZMK_LISTENER(tbog_lock_indicator, tbog_lock_indicator_handler);
+ZMK_SUBSCRIPTION(tbog_lock_indicator, zmk_hid_indicators_changed);
