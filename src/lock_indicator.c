@@ -55,7 +55,7 @@ static int lock_indicator_listener(const zmk_event_t *eh) {
     return ZMK_EV_EVENT_BUBBLE;
 }
 
-static int sys_lock_indicator_init(const struct device *dev) {
+static int sys_lock_indicator_init() {
     // Iterate over all instances
     for (size_t i = 0; i < LOCK_INDICATOR_INSTANCE_COUNT; i+=1) {
         const struct lock_indicator_config *data = lock_indicator_instances[i];
