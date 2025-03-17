@@ -65,7 +65,7 @@ static int sys_lock_indicator_init(const struct device *dev) {
             continue;//return -ENODEV;
         }
     
-        ret = gpio_pin_configure_dt(&data->led_gpio, GPIO_OUTPUT_INACTIVE);
+        int ret = gpio_pin_configure_dt(&data->led_gpio, GPIO_OUTPUT_INACTIVE);
         if (ret < 0) {
             printk("Failed to configure Lock Indicator GPIO: %d\n", ret);
             continue;//return ret;
