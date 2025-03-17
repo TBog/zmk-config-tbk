@@ -1,4 +1,5 @@
 config TBOG_LOCK_INDICATOR
     bool "TBog Lock indicator"
+    select ZMK_HID_INDICATORS
     default y
     depends on DT_HAS_TBOG_LOCK_INDICATOR_ENABLED

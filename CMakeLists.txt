@@ -13,7 +13,7 @@ zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
 #zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_BEHAVIOR_GPIO src/behaviors/behavior_gpio.c)
 
 # only on central side (or unibody boards)
-if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL OR CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS)
   # features
   zephyr_library_sources_ifdef(CONFIG_TBOG_LOCK_INDICATOR src/lock_indicator.c)
 endif()

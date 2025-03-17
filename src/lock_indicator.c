@@ -16,9 +16,9 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/event_manager.h>
 #include <zmk/events/hid_indicators_changed.h>
 #include <zmk/hid.h>
-#include <zmk/behavior.h>
+#include <zmk/hid_indicators.h>
 
-#include <drivers/behavior.h>
+#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 struct lock_indicator_config {
     const struct gpio_dt_spec led_gpio;
@@ -43,7 +43,7 @@ static struct lock_indicator_config *lock_indicator_instances[] = {
 #define LOCK_INDICATOR_INSTANCE_COUNT ARRAY_SIZE(lock_indicator_instances)
 
 static int lock_indicator_listener(const zmk_event_t *eh) {
-    struct zmk_hid_indicators_changed *ev = as_zmk_hid_indicators_changed(eh);
+    const struct zmk_hid_indicators_changed *ev = as_zmk_hid_indicators_changed(eh);
 
     // Iterate over all instances
     for (size_t i = 0; i < LOCK_INDICATOR_INSTANCE_COUNT; i+=1) {
@@ -78,3 +78,5 @@ static int sys_lock_indicator_init() {
 ZMK_LISTENER(lock_indicator, lock_indicator_listener);
 ZMK_SUBSCRIPTION(lock_indicator, zmk_hid_indicators_changed);
 SYS_INIT(sys_lock_indicator_init, POST_KERNEL, CONFIG_APPLICATION_INIT_PRIORITY);
+
+#endif // DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
