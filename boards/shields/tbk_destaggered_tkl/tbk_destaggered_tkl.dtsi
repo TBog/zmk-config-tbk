@@ -18,7 +18,7 @@
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
-
+/*
     gpios {
         compatible = "gpio-leds";
         blue: blue {
@@ -38,6 +38,18 @@
             event = "on-deactivation";
             bindings = <&gpio 0 GPIO_OFF>;
         };
+    };
+*/
+    lock_indicator_caps: lock_indicator_caps {
+        compatible = "tbog,lock-indicator";
+        gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
+        indicator_mask = <LED_CAPS_LOCK>;
+    };
+
+    lock_indicator_num: lock_indicator_num {
+        compatible = "tbog,lock-indicator";
+        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+        indicator_mask = <LED_NUM_LOCK>;
     };
 
     default_transform: matrix_transform0 {
