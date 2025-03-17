@@ -18,7 +18,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/hid.h>
 #include <zmk/hid_indicators.h>
 
-#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+//#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 struct lock_indicator_config {
     const struct gpio_dt_spec led_gpio;
@@ -79,4 +79,4 @@ ZMK_LISTENER(lock_indicator, lock_indicator_listener);
 ZMK_SUBSCRIPTION(lock_indicator, zmk_hid_indicators_changed);
 SYS_INIT(sys_lock_indicator_init, POST_KERNEL, CONFIG_APPLICATION_INIT_PRIORITY);
 
-#endif // DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+//#endif // DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)

@@ -14,6 +14,7 @@ zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # only on central side (or unibody boards)
 if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL OR CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS)
-  # features
-  zephyr_library_sources_ifdef(CONFIG_TBOG_LOCK_INDICATOR src/lock_indicator.c)
+    # features
+    #zephyr_library_sources_ifdef(CONFIG_TBOG_LOCK_INDICATOR src/lock_indicator.c)
+    target_sources_ifdef(CONFIG_TBOG_LOCK_INDICATOR app PRIVATE src/lock_indicator.c)
 endif()
