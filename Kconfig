@@ -1,4 +1,4 @@
-config LOCK_INDICATOR
+config TBOG_LOCK_INDICATOR
     bool "TBog Lock indicator"
     default y
-    depends on DT_HAS_LOCK_INDICATOR_ENABLED
+    depends on DT_HAS_TBOG_LOCK_INDICATOR_ENABLED

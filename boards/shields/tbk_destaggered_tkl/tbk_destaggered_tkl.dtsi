@@ -44,13 +44,13 @@
 */
     lock_indicator_caps: lock_indicator_caps {
         compatible = "tbog,lock-indicator";
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+        gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
         indicator_mask = <LED_CAPS_LOCK>;
     };
 
     lock_indicator_num: lock_indicator_num {
         compatible = "tbog,lock-indicator";
-        gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
         indicator_mask = <LED_NUM_LOCK>;
     };
 
