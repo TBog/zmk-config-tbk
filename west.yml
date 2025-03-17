@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: elpekenin
       url-base: https://github.com/elpekenin
+    - name: tbog
+      url-base: https://github.com/TBog
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main          
       import: app/west.yml
     - name: zmk-userspace
-      remote: elpekenin
+      remote: tbog
       revision: main
   self:
     path: config
