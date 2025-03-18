@@ -21,7 +21,7 @@
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
-/*
+
     gpios {
         compatible = "gpio-leds";
         blue: blue {
@@ -42,7 +42,7 @@
             bindings = <&gpio 0 GPIO_OFF>;
         };
     };
-*/
+
     lock_indicator_caps: lock_indicator_caps {
         compatible = "tbog,lock-indicator";
         gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
