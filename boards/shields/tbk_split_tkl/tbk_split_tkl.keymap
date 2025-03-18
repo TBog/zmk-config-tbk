@@ -83,6 +83,7 @@
         // -------------------------------------------       -----------------------------------------------
 
         default_layer {
+            display-name = "Base";
             bindings = <
 &kp ESC              &kp F1    &kp F2  &kp F3     &kp F4    &kp F5     &kp F6  &kp F7     &kp F8               &kp F9     &kp F10    &kp F11     &kp F12          &kp PSCRN  &kp SLCK  &kp PAUSE_BREAK
 &kp GRAVE  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5    &kp N6     &kp N7  &kp N8     &kp N9    &kp N0     &kp MINUS  &kp EQUAL              &kp BACKSPACE    &kp INS    &kp HOME  &kp PG_UP
@@ -94,13 +95,14 @@
         };
 
         swap_layer {
+            display-name = "Fn";
             bindings = <
-&hold2boot 0 C_AL_LOCK                &bt_td        &bt BT_NXT    &bt BT_PRV    &bt BT_CLR_ALL    &bt_select 0         &bt_select 1  &bt_select 2  &bt_select 3         &bt BT_NXT  &bt BT_PRV  &bt BT_CLR  &bt BT_CLR_ALL    &kp C_SNAPSHOT  &kp C_BRI_AUTO  &hold2boot 0 C_MUTE
-&bt_select 0            &bt_select 1  &bt_select 2  &bt_select 3  &bt_select 4  &bt BT_CLR        &hold2boot 0 K_LOCK  &none         &none         &none         &none  &none       &none                   &soft_off         &none           &kp C_BRI_UP    &kp C_VOL_UP
-&kp BSPC                &none         &kp UP        &none         &none         &none             &none                &none         &none         &none         &none  &none       &none                   &kp TAB           &none           &kp C_BRI_DN    &kp C_VOL_DN
-&kp ENTER               &kp LEFT      &kp DOWN      &kp RIGHT     &none         &none             &none                &none         &none         &none         &none  &none                               &kp KP_ENTER
-&kp RSHFT               &none         &none         &none         &none         &out OUT_TOG      &out OUT_USB         &none         &mkp MB4      &mkp MB5      &none                          &kp LSHIFT                                    &kp K_VOL_UP
-&kp RCTRL               &kp K_APP     &kp RALT      &mo 1         &to 1                           &to 0                                            &kp LALT      &mo 1                          &kp RGUI    &kp LCTRL         &bl BL_CYCLE    &kp K_VOL_DN    &bl BL_TOG
+&hold2boot 0 C_AL_LOCK                 &bt_td       &bt BT_NXT    &bt BT_PRV    &bt BT_CLR_ALL    &bt_select 0         &bt_select 1  &bt_select 2  &bt_select 3         &bt BT_NXT  &bt BT_PRV  &bt BT_CLR  &bt BT_CLR_ALL    &kp C_SNAPSHOT  &kp C_BRI_AUTO  &hold2boot 0 C_MUTE
+&bt_select 0            &bt_select 1   &bt_select 2 &bt_select 3  &bt_select 4  &bt BT_CLR        &hold2boot 0 K_LOCK  &none         &none         &none         &none  &none       &none                   &soft_off         &studio_unlock  &kp C_BRI_UP    &kp C_VOL_UP
+&kp BSPC                &studio_unlock &kp UP       &none         &none         &none             &none                &none         &none         &none         &none  &none       &none                   &kp TAB           &none           &kp C_BRI_DN    &kp C_VOL_DN
+&kp ENTER               &kp LEFT       &kp DOWN     &kp RIGHT     &none         &none             &none                &none         &none         &none         &none  &none                               &kp KP_ENTER
+&kp RSHFT               &none          &none        &none         &none         &out OUT_TOG      &out OUT_USB         &none         &mkp MB4      &mkp MB5      &none                          &kp LSHIFT                                    &kp K_VOL_UP
+&kp RCTRL               &kp K_APP      &kp RALT     &mo 1         &to 1                           &to 0                                            &kp LALT      &mo 1                          &kp RGUI    &kp LCTRL         &bl BL_CYCLE    &kp K_VOL_DN    &bl BL_TOG
             >;
         };
     };
