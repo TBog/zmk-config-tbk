@@ -5,11 +5,12 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <tbk_split_tkl-layouts.dtsi>
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
         zmk,battery = &vbatt;
     };
 
@@ -17,7 +18,7 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 
-    default_transform: keymap_transform_0 {
+    default_transform: matrix_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <18>; // 6 + 9 + 3
         rows = <6>;
