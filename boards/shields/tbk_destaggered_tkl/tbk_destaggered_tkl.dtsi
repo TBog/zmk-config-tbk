@@ -8,9 +8,6 @@
 #include "tbk_destaggered_tkl-layouts.dtsi"
 #include "elpekenin/behaviors.dtsi"
 
-#define LED_NUM_LOCK    0x01
-#define LED_CAPS_LOCK   0x02
-
 / {
     chosen {
         zmk,kscan = &kscan0;
