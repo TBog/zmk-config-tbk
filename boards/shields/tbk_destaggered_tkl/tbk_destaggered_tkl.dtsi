@@ -18,7 +18,7 @@
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
-
+/*
     gpios {
         compatible = "gpio-leds";
         blue: blue {
@@ -39,7 +39,7 @@
             bindings = <&gpio 0 GPIO_OFF>;
         };
     };
-
+*/
     hid_indicator {
         compatible = "tbog,lock-indicator";
         caps {
