@@ -40,12 +40,18 @@
         };
     };
 */
-    hid_indicator {
+    lock_indicator_caps {
         compatible = "tbog,lock-indicator";
-        caps {
-            gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
-            indicator-mask = <LED_CAPS_LOCK>;
-        };
+        status = "okay";
+        gpios = <&gpio0 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        indicator-mask = <LED_CAPS_LOCK>;
+    };
+
+    lock_indicator_num {
+        compatible = "tbog,lock-indicator";
+        status = "okay";
+        gpios = <&gpio0 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        indicator-mask = <LED_NUM_LOCK>;
     };
 
     default_transform: matrix_transform0 {
